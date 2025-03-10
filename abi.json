@@ -1,0 +1,27 @@
+{
+  "inputs": [
+    {
+      "name": "old_secret",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "old_commitment",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "new_commitment",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "nullifier",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "output": {
+    "type": "field"
+  }
+}

@@ -1,17 +1,23 @@
-def main(private field old_secret, field old_commitment, field new_commitment, field nullifier) -> bool:
-    // Compute the old commitment
-    field computed_old_commitment = old_secret * old_secret;
-
-    // Compute the new commitment
+def main(private field old_secret, 
+         field old_commitment, 
+         field new_commitment, 
+         field nullifier) -> field {
+    
+    // Compute old commitment
+    field computed_old = old_secret * old_secret;
+    
+    // Compute new commitment
     field new_secret = old_secret + 1;
-    field computed_new_commitment = new_secret * new_secret;
-
-    // Compute the nullifier
+    field computed_new = new_secret * new_secret;
+    
+    // Compute nullifier
     field computed_nullifier = old_secret + 1;
-
-    // Ensure the provided commitments and nullifier match the computed ones
-    assert(computed_old_commitment == old_commitment);
-    assert(computed_new_commitment == new_commitment);
+    
+    // Verify commitments and nullifier
+    assert(computed_old == old_commitment);
+    assert(computed_new == new_commitment);
     assert(computed_nullifier == nullifier);
-
-    return true;
+    
+    // Return dummy field value (required by ZoKrates)
+    return 1;
+}
